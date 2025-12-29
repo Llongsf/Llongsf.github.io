@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人主页</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入字体图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Portfolio</a>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active" data-target="home"><i class="fas fa-home"></i> 首页</a></li>
+                <li><a href="#" class="nav-link" data-target="photos"><i class="fas fa-images"></i> 照片</a></li>
+                <li><a href="#" class="nav-link" data-target="projects"><i class="fas fa-project-diagram"></i> 项目</a></li>
+                <li><a href="#" class="nav-link" data-target="about"><i class="fas fa-user"></i> 个人信息</a></li>
+            </ul>
+            <!-- 移动端汉堡菜单 -->
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容区域 -->
+    <main class="main-content">
+        <!-- 首页/个人介绍区域 -->
+        <section id="home" class="content-section active">
+            <div class="hero">
+                <div class="profile-image-container">
+                    <!-- 请将这里的图片替换为你自己的照片 -->
+                    <img src="images/profile.jpg" alt="我的个人照片" class="profile-image">
+                    <div class="image-overlay">
+                        <span>欢迎来到我的空间</span>
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h1 class="name">吕万朗</h1>
+                    <p class="title">手机摄影爱好者</p>
+                    <p class="bio">
+                        你好！欢迎来到我的个人主页。我热爱创造美观实用的网页，也喜欢用镜头记录生活中的美好瞬间。
+                        在这里，你可以浏览我的摄影作品，了解我参与的项目，以及更多关于我的信息。
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 照片展示区域 -->
+        <section id="photos" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-camera"></i> 我的相册</h2>
+                <p>这里展示了我近期拍摄的一些照片</p>
+            </div>
+            <div class="gallery">
+                <!-- 示例照片，请替换为你自己的图片 -->
+                <div class="photo-item">
+                    <img src="images/photo1.jpg" alt="风景照片示例">
+                    <div class="photo-caption">
+                        <h3>山间日出</h3>
+                        <p>拍摄于2023年夏季</p>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <img src="images/photo2.jpg" alt="城市夜景示例">
+                    <div class="photo-caption">
+                        <h3>城市夜景</h3>
+                        <p>都市灯光与建筑</p>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <img src="images/photo3.jpg" alt="自然景观示例">
+                    <div class="photo-caption">
+                        <h3>自然风光</h3>
+                        <p>大自然的宁静之美</p>
+                    </div>
+                </div>
+                <!-- 可以继续添加更多照片 -->
+            </div>
+            <div class="section-note">
+                <p><i class="fas fa-lightbulb"></i> 提示：点击导航栏的选项可以切换不同内容区域</p>
+            </div>
+        </section>
+
+        <!-- 项目展示区域 -->
+        <section id="projects" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-code"></i> 我的项目</h2>
+                <p>以下是我最近完成或正在开发的一些项目</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>个人作品集网站</h3>
+                    <p>使用HTML、CSS和JavaScript开发的响应式个人网站，适配各种设备屏幕。</p>
+                    <a href="#" class="project-link">查看详情 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>移动端应用UI设计</h3>
+                    <p>为本地餐厅设计的点餐应用界面，注重用户体验和视觉美感。</p>
+                    <a href="#" class="project-link">查看详情 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>数据可视化面板</h3>
+                    <p>使用Chart.js库创建的数据展示面板，支持实时数据更新。</p>
+                    <a href="#" class="project-link">查看详情 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 个人信息区域 -->
+        <section id="about" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-user-circle"></i> 个人信息</h2>
+                <p>了解更多关于我的背景、技能和经历</p>
+            </div>
+            <div class="about-container">
+                <div class="about-info">
+                    <h3>个人简介</h3>
+                    <p>喜欢探索新技术，不断尝试将创意转化为现实。</p>
+                    
+                    <h3>技能专长</h3>
+                    <div class="skills">
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">UI/UX设计</span>
+                        <span class="skill-tag">摄影</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">响应式设计</span>
+                    </div>
+                    
+                    <h3>学习经历</h3>
+                    <ul class="experience-list">
+                        <li><strong>2023年至今</strong> - 自学前端开发，完成多个在线课程与实践项目</li>
+                        <li><strong>2022年</strong> - 开始系统学习网页设计与开发基础知识</li>
+                        <li><strong>2021年</strong> - 接触摄影，学习构图与后期处理技巧</li>
+                    </ul>
+                    
+                    <h3>联系方式</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> example@email.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 中国，北京</p>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <!-- 这里可以放另一张个人照片或插图 -->
+                    <img src="images/about.jpg" alt="关于我的图片">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>© 2023 我的个人主页. 使用HTML、CSS和JavaScript构建.</p>
+        <p>托管于 <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
