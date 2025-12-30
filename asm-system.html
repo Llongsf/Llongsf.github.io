@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汇编成绩管理系统</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入思源字体 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.cn/earlyaccess/notosanssc.css">
+    <!-- 代码高亮样式 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+    <!-- 二进制装饰 -->
+    <div class="binary-decor binary-top">0101 0110 1001</div>
+    <div class="binary-decor binary-right">1 0 0 1 1 0</div>
+
+    <!-- 导航栏 -->
+    <nav class="asm-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">[RETURN_HOME]</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">MOV AH, 首页</a></li>
+                <li><a href="index.html#projects" class="nav-link">MOV BX, 项目</a></li>
+                <li><a href="index.html#photos" class="nav-link active">MOV CX, 摄影</a></li>
+                <li><a href="index.html#about" class="nav-link">MOV DX, 关于</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="fullscreen-main">
+        <section class="content-section" style="padding-top: 100px; max-width: 1100px;">
+            <div class="section-header">
+                <h2><span class="asm-instr">INT 21h</span> 汇编成绩管理系统 <span class="asm-instr">ENDP</span></h2>
+                <p class="section-desc">; 基于x86汇编语言开发的学生成绩录入与查询系统 | 总代码量: 约500行</p>
+            </div>
+
+            <!-- 系统功能概览 -->
+            <div class="asm-system-overview">
+                <div class="feature-card">
+                    <div class="feature-icon">1</div>
+                    <h3>学生信息录入</h3>
+                    <p>输入姓名、学号、16次平时成绩和大作业成绩</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">2</div>
+                    <h3>数据存储结构</h3>
+                    <p>每行105字节，按固定偏移地址存储各项数据</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">3</div>
+                    <h3>成绩计算</h3>
+                    <p>平时成绩×40% + 大作业×60% = 最终成绩</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">4</div>
+                    <h3>排序与统计</h3>
+                    <p>按最终成绩排名，统计各分数段人数</p>
+                </div>
+            </div>
+
+            <!-- 关键内存布局 -->
+            <div class="memory-layout">
+                <h3><span class="asm-instr">DB</span> 内存数据段布局</h3>
+                <pre class="memory-table">
+偏移地址  长度  内容        说明
+00h      12   学生姓名    最多12字符，以空格结束
+0Dh      10   学号        最多10字符，以空格结束
+18h      64   平时成绩    16次成绩，每成绩3字符+1空格
+58h      3    大作业成绩  3字符表示
+5Bh      3    平时均分    计算后存储
+5Eh      3    最终成绩    计算后存储
+                </pre>
+            </div>
+
+            <!-- 汇编代码展示 -->
+            <div class="code-section">
+                <div class="code-header">
+                    <h3><span class="asm-instr">CODE</span> SEGMENT</h3>
+                    <div class="code-actions">
+                        <button class="code-copy-btn" onclick="copyCode()">
+                            <span class="asm-instr">MOV</span> 复制代码
+                        </button>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code class="language-x86asm">; ==================== 系统主菜单 ====================
+data segment
+    LIST db 13,10
+            db '  *~*~*~*~*~*~*~*~*~LIST*~*~*~*~*~*~*~*~*~*',13,10
+            db '  @               1.INPUT                 @',13,10
+            db '  @               2.OUTPUT                @',13,10
+            db '  @               3.SEARCH                @',13,10
+            db '  @               4.CAL                   @',13,10
+            db '  @               5.RANK                  @',13,10
+            db '  @               0.QUIT                  @',13,10
+            db '  *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*',13,10
+            db 13,10,'$'
+    
+    ; 数据存储区定义
+    data_s db '                                                                                            Dai Las Fin',0dh,0ah
+        db '                                                                                            Dai Las Fin',0dh,0ah
+        db '                                                                                            Dai Las Fin',0dh,0ah
+        db '                                                                                            Dai Las Fin',0dh,0ah
+        db '                                                                                            Dai Las Fin',0dh,0ah
+        db '$'
+    ; ... (其他数据定义省略，完整代码见附件)
+data ends
+
+; ==================== 主程序入口 ====================
+code segment
+start:
+    call show        ; 显示菜单
+    call choice      ; 处理用户选择
+Exit:
+    mov ax,data
+    mov ds,ax
+    shuchu thanks    ; 显示感谢信息
+    mov ax,4c00h
+    int 21h          ; 返回DOS
+
+; ==================== 菜单选择处理 ====================
+choice proc near
+    mov ax,data
+    mov ds,ax
+    shuchu hint4     ; "INPUT YOUR CHOICE:"
+    shuru            ; 读取用户输入
+    cmp al,49        ; 1 - 输入功能
+    je  inp
+    cmp al,50        ; 2 - 输出功能
+    je out_p
+    cmp al,51        ; 3 - 搜索功能
+    je sear
+    cmp al,52        ; 4 - 计算功能
+    je calculate
+    cmp al,53        ; 5 - 排序功能
+    je ran
+    cmp al,48        ; 0 - 退出
+    je Exit
+    shuchu WARNING   ; 输入错误警告
+    ret
+choice endp
+
+; ==================== 成绩计算核心算法 ====================
+cal_culate proc near
+    ; 平时成绩平均分计算
+    mov cx, 16
+calc_avg:
+    ; 将ASCII成绩转换为二进制数值
+    mov al,ds:[bx+si+24]   ; 百位
+    sub al,30h
+    mov dl,100
+    mul dl
+    add ds:[di],ax
+    
+    ; ... (详细计算过程)
+    
+    ; 平时成绩×0.4
+    mov dx,4
+    mul dl
+    mov dx,10
+    div dl
+    mov di,offset total
+    mov ds:[di],al
+    
+    ; 大作业成绩×0.6
+    ; ... (类似计算)
+    
+    ; 最终成绩 = 平时×0.4 + 大作业×0.6
+    add ds:[di],al
+    
+    ret
+cal_culate endp
+
+; ==================== 冒泡排序算法 ====================
+ra_nk proc near
+    mov cx,4            ; 外循环次数 n-1
+cal_final_inputs:
+    mov bx,offset data_s
+    push cx
+cal_final:
+    ; 比较两个学生的最终成绩
+    mov al,ds:[di]      ; 学生1成绩
+    mov ah,ds:[bp]      ; 学生2成绩
+    cmp ah,al
+    ja continue_cal_final
+    
+    ; 交换两个学生数据（105字节交换）
+    exchange_stu        ; 调用交换宏
+    
+continue_cal_final:
+    add bx,105
+    loop cal_final
+    pop cx
+    dec cx
+    jnz cal_final_inputs
+    ret
+ra_nk endp
+
+; ==================== 宏定义 ====================
+exchange_stu macro
+    mov dx,105
+    mov si,0
+chs:
+    mov al,ds:[bx+si]
+    mov ah,ds:[bx+si+105]
+    mov ds:[bx+si],ah
+    mov ds:[bx+si+105],al
+    inc si
+    dec dx
+    cmp dx,0
+    jne chs
+endm
+
+code ends
+end start</code></pre>
+                </div>
+                <div class="code-footer">
+                    <p class="code-note">; 注：此为系统核心代码片段，完整代码约500行，实现了完整的成绩管理功能。</p>
+                </div>
+            </div>
+
+            <!-- 技术特点 -->
+            <div class="tech-features">
+                <h3><span class="asm-instr">FEATURES</span> 系统技术特点</h3>
+                <div class="features-grid">
+                    <div class="tech-item">
+                        <h4><span class="asm-hex">0x01</span> 内存精确管理</h4>
+                        <p>使用固定偏移地址访问数据，每行105字节精确布局。</p>
+                    </div>
+                    <div class="tech-item">
+                        <h4><span class="asm-hex">0x02</span> ASCII-二进制转换</h4>
+                        <p>实现成绩的ASCII字符到二进制数值的转换算法。</p>
+                    </div>
+                    <div class="tech-item">
+                        <h4><span class="asm-hex">0x03</span> 冒泡排序优化</h4>
+                        <p>105字节数据行的交换算法，支持大数据块排序。</p>
+                    </div>
+                    <div class="tech-item">
+                        <h4><span class="asm-hex">0x04</span> 模块化设计</h4>
+                        <p>输入、计算、排序、搜索等功能独立为子程序。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 下载与返回 -->
+            <div class="system-actions">
+                <a href="files/maybe2.asm" download class="download-btn">
+                    <span class="asm-instr">MOV</span> 下载完整汇编源码(.asm)
+                </a>
+                <a href="index.html#projects" class="back-btn">
+                    <span class="asm-instr">RET</span> 返回项目列表
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="asm-footer">
+        <div class="footer-content">
+            <p>© 2026 <span class="footer-hex">0x2B</span> 汇编成绩管理系统展示 | 代码分析页面</p>
+        </div>
+    </footer>
+
+    <script>
+        // 复制代码功能
+        function copyCode() {
+            const codeElement = document.querySelector('.code-container code');
+            const textArea = document.createElement('textarea');
+            textArea.value = codeElement.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            // 显示复制成功提示
+            const btn = document.querySelector('.code-copy-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span class="asm-instr">MOV</span> 已复制到剪贴板';
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+            }, 2000);
+        }
+        
+        // 页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('%c[ASM_SYSTEM]%c 汇编成绩管理系统页面已加载', 
+                'color: #6A7062; font-weight: bold;', 
+                'color: #1A1A1A;');
+        });
+    </script>
+</body>
+</html>

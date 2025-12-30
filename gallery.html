@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光影记忆库 - 完整相册</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 沿用主站的思源字体 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.cn/earlyaccess/notosanssc.css">
+</head>
+<body>
+    <!-- 二进制装饰 -->
+    <div class="binary-decor binary-top">0110 0001 0011</div>
+    <div class="binary-decor binary-right">0 1 1 0 0 1</div>
+
+    <!-- 导航栏 - 与主页一致 -->
+    <nav class="asm-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">[RETURN_HOME]</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">MOV AH, 首页</a></li>
+                <li><a href="index.html#projects" class="nav-link">MOV BX, 项目</a></li>
+                <li><a href="index.html#photos" class="nav-link active">MOV CX, 摄影</a></li>
+                <li><a href="index.html#about" class="nav-link">MOV DX, 关于</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 照片墙主内容 -->
+    <main class="fullscreen-main">
+        <section id="gallery" class="content-section" style="padding-top: 100px;">
+            <div class="section-header">
+                <h2><span class="asm-instr">ALBUM</span> 光影记忆库 <span class="asm-instr">END</span></h2>
+                <p class="section-desc">; 全部照片已按十六进制地址索引，共 <span id="photoCount">0</span> 张</p>
+            </div>
+
+            <!-- 照片分类筛选（可选） -->
+            <div class="gallery-controls">
+                <button class="filter-btn active" data-filter="all">全部影像</button>
+                <button class="filter-btn" data-filter="landscape">风景</button>
+                <button class="filter-btn" data-filter="city">城市</button>
+                <button class="filter-btn" data-filter="life">生活</button>
+            </div>
+
+            <!-- 照片网格容器 -->
+            <div class="photo-wall" id="photoWall">
+                <!-- 照片项将通过JavaScript动态添加，这里留空 -->
+                <!-- 示例照片结构：
+                <div class="wall-photo" data-category="landscape">
+                    <img src="images/gallery/photo01.jpg" alt="照片描述">
+                    <div class="wall-photo-info">
+                        <h4>MOV [0x01], 标题</h4>
+                        <p>拍摄时间、地点等描述</p>
+                        <div class="wall-hex">0x01</div>
+                    </div>
+                </div>
+                -->
+            </div>
+
+            <!-- 返回主页的链接 -->
+            <div class="back-to-home">
+                <a href="index.html" class="asm-btn">
+                    <span class="asm-instr">JMP</span> back_to_home
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="asm-footer">
+        <div class="footer-content">
+            <p>© 2026 <span class="footer-hex">0x2A</span> 汇编风格相册 | 使用JavaScript驱动</p>
+        </div>
+    </footer>
+
+    <!-- 独立相册的JS -->
+    <script src="gallery.js"></script>
+</body>
+</html>

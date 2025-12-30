@@ -3,176 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人主页</title>
+    <title>汇编程序员的数字世界</title>
     <link rel="stylesheet" href="style.css">
-    <!-- 引入字体图标库 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- 引入思源字体 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.cn/earlyaccess/notosanssc.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.cn/earlyaccess/notosansscsccondensed.css">
 </head>
 <body>
+    <!-- 二进制装饰点阵 -->
+    <div class="binary-decor binary-top">0110 1001 0010</div>
+    <div class="binary-decor binary-right">1 0 1 1 0 0</div>
+    <div class="binary-decor binary-bottom">0010 1100 0101</div>
+    <div class="binary-decor binary-left">0 1 0 0 1 1</div>
+
     <!-- 导航栏 -->
-    <nav class="navbar">
+    <nav class="asm-nav">
         <div class="nav-container">
-            <a href="#" class="logo">Portfolio</a>
+            <a href="#home" class="nav-logo">[LLONGSF_PORTFOLIO]</a>
             <ul class="nav-menu">
-                <li><a href="#" class="nav-link active" data-target="home"><i class="fas fa-home"></i> 首页</a></li>
-                <li><a href="#" class="nav-link" data-target="photos"><i class="fas fa-images"></i> 照片</a></li>
-                <li><a href="#" class="nav-link" data-target="projects"><i class="fas fa-project-diagram"></i> 项目</a></li>
-                <li><a href="#" class="nav-link" data-target="about"><i class="fas fa-user"></i> 个人信息</a></li>
+                <li><a href="#home" class="nav-link active">MOV AH, 首页</a></li>
+                <li><a href="#projects" class="nav-link">MOV AX, 项目</a></li>
+                <li><a href="#photos" class="nav-link">MOV BX, 摄影</a></li>
+                <li><a href="#about" class="nav-link">MOV CX, 关于</a></li>
             </ul>
-            <!-- 移动端汉堡菜单 -->
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
         </div>
     </nav>
 
-    <!-- 主要内容区域 -->
-    <main class="main-content">
-        <!-- 首页/个人介绍区域 -->
-        <section id="home" class="content-section active">
-            <div class="hero">
-                <div class="profile-image-container">
-                    <!-- 请将这里的图片替换为你自己的照片 -->
-                    <img src="images/profile.jpg" alt="我的个人照片" class="profile-image">
-                    <div class="image-overlay">
-                        <span>欢迎来到我的空间</span>
-                    </div>
+    
+    
+    <!-- 全屏主区域 -->
+    <main class="fullscreen-main">
+        <!-- 首页/英雄区 -->
+        <section id="home" class="hero-section active">
+            <div class="hero-content">
+                <div class="name-title">
+                    <h1 class="asm-title">CALL <span class="asm-register">吕万朗</span></h1>
+                    <p class="asm-subtitle"><span class="asm-comment">/* 热爱随手拍的网安仔 */</span></p>
                 </div>
-                <div class="profile-info">
-                    <h1 class="name">吕万朗</h1>
-                    <p class="title">手机摄影爱好者</p>
-                    <p class="bio">
-                        你好！欢迎来到我的个人主页。我热爱创造美观实用的网页，也喜欢用镜头记录生活中的美好瞬间。
-                        在这里，你可以浏览我的摄影作品，了解我参与的项目，以及更多关于我的信息。
-                    </p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-weixin"></i></a>
-                        <a href="#"><i class="fas fa-envelope"></i></a>
-                    </div>
+                <div class="hero-image-container">
+                    <!-- 请替换下方src为你个人照片的路径 -->
+                    <img src="images/profile.jpg" alt="个人照片" class="hero-profile">
+                    <div class="hex-label">0xFF</div>
+                </div>
+                <div class="code-scroll-hint">
+                    <span>; 向下滚动查看更多...</span>
+                    <div class="scroll-line"></div>
                 </div>
             </div>
         </section>
 
-        <!-- 照片展示区域 -->
-        <section id="photos" class="content-section">
-            <div class="section-header">
-                <h2><i class="fas fa-camera"></i> 我的相册</h2>
-                <p>这里展示了我近期拍摄的一些照片</p>
-            </div>
-            <div class="gallery">
-                <!-- 示例照片，请替换为你自己的图片 -->
-                <div class="photo-item">
-                    <img src="images/photo1.jpg" alt="风景照片示例">
-                    <div class="photo-caption">
-                        <h3>山间日出</h3>
-                        <p>拍摄于2023年夏季</p>
-                    </div>
-                </div>
-                <div class="photo-item">
-                    <img src="images/photo2.jpg" alt="城市夜景示例">
-                    <div class="photo-caption">
-                        <h3>城市夜景</h3>
-                        <p>都市灯光与建筑</p>
-                    </div>
-                </div>
-                <div class="photo-item">
-                    <img src="images/photo3.jpg" alt="自然景观示例">
-                    <div class="photo-caption">
-                        <h3>自然风光</h3>
-                        <p>大自然的宁静之美</p>
-                    </div>
-                </div>
-                <!-- 可以继续添加更多照片 -->
-            </div>
-            <div class="section-note">
-                <p><i class="fas fa-lightbulb"></i> 提示：点击导航栏的选项可以切换不同内容区域</p>
-            </div>
-        </section>
-
-        <!-- 项目展示区域 -->
+        <!-- 项目展示区 -->
         <section id="projects" class="content-section">
             <div class="section-header">
-                <h2><i class="fas fa-code"></i> 我的项目</h2>
-                <p>以下是我最近完成或正在开发的一些项目</p>
+                <h2><span class="asm-instr">PROC</span> 项目历程 <span class="asm-instr">ENDP</span></h2>
+                <p class="section-desc">以下是我的核心项目，如同精心调用的过程</p>
             </div>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-laptop-code"></i>
+                    <div class="project-header">
+                        <h3 class="project-title"><span class="asm-instr">mov ax,</span> 个人摄影集</h3>
+                        <span class="project-tag">[PORTFOLIO.EXE]</span>
                     </div>
-                    <h3>个人作品集网站</h3>
-                    <p>使用HTML、CSS和JavaScript开发的响应式个人网站，适配各种设备屏幕。</p>
-                    <a href="#" class="project-link">查看详情 <i class="fas fa-arrow-right"></i></a>
+                    <p class="project-desc">使用HTML5、CSS3与原生JavaScript构建的响应式在线作品集，实现了汇编风格UI与流畅的图片懒加载。</p>
+                    <div class="project-footer">
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Git</span>
+                    </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-mobile-alt"></i>
+                <div class="project-header">
+                        <h3 class="project-title"><span class="asm-instr">mov dx,</span> 汇编成绩管理系统</h3>
+                        <span class="project-tag">[ASM_SYSTEM.EXE]</span>
                     </div>
-                    <h3>移动端应用UI设计</h3>
-                    <p>为本地餐厅设计的点餐应用界面，注重用户体验和视觉美感。</p>
-                    <a href="#" class="project-link">查看详情 <i class="fas fa-arrow-right"></i></a>
+                    <p class="project-desc">基于x86汇编语言开发的学生成绩录入与查询系统，包含成绩计算、排名、搜索等完整功能，采用精确内存管理和冒泡排序算法。</p>
+                    <div class="project-footer">
+                        <span class="tech-tag">x86 Assembly</span>
+                        <span class="tech-tag">DOS INT 21h</span>
+                        <span class="tech-tag">内存管理</span>
+                    </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-chart-line"></i>
+                    <div class="project-header">
+                        <h3 class="project-title"><span class="asm-instr">mov cx,</span> 。。。。。。。。</h3>
+                        <span class="project-tag">[SIM8086.ASM]</span>
                     </div>
-                    <h3>数据可视化面板</h3>
-                    <p>使用Chart.js库创建的数据展示面板，支持实时数据更新。</p>
-                    <a href="#" class="project-link">查看详情 <i class="fas fa-arrow-right"></i></a>
+                    <p class="project-desc">一个在浏览器中运行的x86汇编指令教学模拟器，包含虚拟寄存器、内存查看器和逐步调试功能。</p>
+                    <div class="project-footer">
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">WebAssembly</span>
+                        <span class="tech-tag">教育工具</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 个人信息区域 -->
-        <section id="about" class="content-section">
+        <!-- 摄影作品区 -->
+        <section id="photos" class="content-section">
             <div class="section-header">
-                <h2><i class="fas fa-user-circle"></i> 个人信息</h2>
-                <p>了解更多关于我的背景、技能和经历</p>
+                <h2><span class="asm-instr">DB</span> 光影记忆 <span class="asm-instr">ENDS</span></h2>
+                <p class="section-desc">用镜头捕捉的瞬间，存储于生命的段地址</p>
             </div>
-            <div class="about-container">
-                <div class="about-info">
-                    <h3>个人简介</h3>
-                    <p>喜欢探索新技术，不断尝试将创意转化为现实。</p>
-                    
-                    <h3>技能专长</h3>
-                    <div class="skills">
-                        <span class="skill-tag">HTML/CSS</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">UI/UX设计</span>
-                        <span class="skill-tag">摄影</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">响应式设计</span>
-                    </div>
-                    
-                    <h3>学习经历</h3>
-                    <ul class="experience-list">
-                        <li><strong>2023年至今</strong> - 自学前端开发，完成多个在线课程与实践项目</li>
-                        <li><strong>2022年</strong> - 开始系统学习网页设计与开发基础知识</li>
-                        <li><strong>2021年</strong> - 接触摄影，学习构图与后期处理技巧</li>
-                    </ul>
-                    
-                    <h3>联系方式</h3>
-                    <div class="contact-info">
-                        <p><i class="fas fa-envelope"></i> example@email.com</p>
-                        <p><i class="fas fa-map-marker-alt"></i> 中国，北京</p>
+            <div class="photo-gallery">
+                <!-- 示例照片，请替换下方src为你自己的图片路径 -->
+                <div class="photo-item">
+                    <img src="images/gallery/photo01.jpg" alt="自然风光">
+                    <div class="photo-info">
+                        <h4>MOV [SI], 发电厂</h4>
+                        <p>...</p>
+                        <div class="hex-code">0x0A</div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <!-- 这里可以放另一张个人照片或插图 -->
-                    <img src="images/about.jpg" alt="关于我的图片">
+                <div class="photo-item">
+                    <img src="images/gallery/photo02.jpg" alt="自然风光">
+                    <div class="photo-info">
+                        <h4>MOV [DI], 北江大坝</h4>
+                        <p>...</p>
+                        <div class="hex-code">0x14</div>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <img src="images/gallery/photo03.jpg" alt="自然风光">
+                    <div class="photo-info">
+                        <h4>MOV [BP], 发电厂</h4>
+                        <p>...</p>
+                        <div class="hex-code">0x1E</div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all-container" style="text-align: center; margin-top: 3rem;">
+                <a href="gallery.html" class="asm-btn">
+                    <span class="asm-instr">CALL</span> 查看全部照片
+                </a>
+            </div>
+        </section>
+
+        <!-- 关于我区域 -->
+        <section id="about" class="content-section">
+            <div class="about-container">
+                <div class="about-header">
+                    <h2><span class="asm-instr">COMMENT</span> *</h2>
+                    <p class="about-subtitle">; 对这个人的“源代码注释”</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <div class="comment-block">
+                            <p>/*</p>
+                            <p> * 关于我 - 热爱摄影的网安仔</p>
+                            <p> *</p>
+                            <p> * 我痴迷于计算机系统最底层的运行原理，享受在寄存器与内存地址间穿梭的精确控制感。</p>
+                            <p> * 同时，我也通过摄影来观察和记录现实世界的细腻层次，寻找技术与艺术交汇的瞬间。</p>
+                            <p> *</p>
+                            <p> * 专业技能段:</p>
+                            <p> *   - x86/ARM 汇编语言程序设计</p>
+                            <p> *   - C/C++ 系统级编程</p>
+                            <p> *   - 前端开发 (HTML5, CSS3, JavaScript)</p>
+                            <p> *   - 数码摄影与后期处理</p>
+                            <p> *</p>
+                            <p> * 联系方式:</p>
+                            <p> *   - Email: llongsf@163.com</p>
+                            <p> *   - GitHub: github.com/Llongsf</p>
+                            <p> */</p>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <!-- 可在此处放置另一张个人生活或工作照 -->
+                        <img src="images/about.jpg" alt="工作场景">
+                        <div class="image-caption">
+                            <span>; DEBUG 日常 - 代码与光影的调试现场</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- 页脚 -->
-    <footer class="footer">
-        <p>© 2023 我的个人主页. 使用HTML、CSS和JavaScript构建.</p>
-        <p>托管于 <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
+    <footer class="asm-footer">
+        <div class="footer-content">
+            <p>© 2026 <span class="footer-hex">0x1F</span> 本页面使用HTML/CSS/JS汇编风格构建，托管于GitHub Pages。</p>
+            <p>页面最后编译时间: <span id="compile-time"></span></p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
