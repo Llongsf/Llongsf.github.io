@@ -153,7 +153,7 @@ body {
 }
 
 .asm-register {
-    color: var(--color-accent);
+    color: black;
     text-shadow: 1px 1px 0 var(--color-border);
 }
 
@@ -263,8 +263,22 @@ body {
     background-color: rgba(255, 255, 255, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
+
+    display: block; /* a 标签默认是 inline，必须改为 block 才能作为容器 */
+    text-decoration: none; /* 去掉链接下划线 */
+    color: inherit; /* 让文字颜色跟随原本的设计，不要变成蓝色 */
+    cursor: pointer; /* 明确指示可点击 */
+     /* 保留原来的过渡动画 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* 确保卡片内部的标题也不会变成链接色 */
+.project-card h3, 
+.project-card p {
+    color: var(--color-text);
+}
+
+/* 项目卡片悬浮状态 */
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 6px 6px 0 rgba(106, 112, 98, 0.15);
@@ -502,6 +516,7 @@ body {
     break-inside: avoid;
 }
 
+/* 照片墙卡片悬浮状态 */
 .wall-photo:hover {
     transform: translateY(-5px);
     box-shadow: 8px 8px 0 rgba(106, 112, 98, 0.15);
@@ -644,6 +659,7 @@ body {
     transition: transform 0.3s ease;
 }
 
+/* 特性卡片悬浮状态 */
 .feature-card:hover {
     transform: translateY(-5px);
     box-shadow: 5px 5px 0 rgba(106, 112, 98, 0.1);
@@ -889,4 +905,61 @@ body {
         width: 100%;
         text-align: center;
     }
+}
+
+/* ====== 新增：关于我区域的样式优化 ====== */
+
+/* 覆盖原有的 italic 样式，让正文更易读 */
+.comment-block {
+    font-style: normal; 
+    border-left: 4px solid var(--color-accent); /* 加粗左边框 */
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.log-entry {
+    font-family: 'Consolas', monospace;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.log-entry:last-child {
+    margin-top: 2rem;
+    margin-bottom: 0;
+}
+
+.log-time {
+    color: var(--color-accent);
+}
+
+.log-msg {
+    color: var(--color-text);
+}
+
+.bio-text {
+    margin-bottom: 1.2rem;
+    font-family: 'Noto Sans SC', sans-serif; /* 正文改用无衬线体，更易读 */
+    line-height: 1.8;
+}
+
+.skills-section, .contact-info {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--color-border);
+}
+
+.section-label {
+    font-family: 'Consolas', monospace;
+    color: var(--color-accent);
+    margin-bottom: 0.8rem;
+    font-weight: bold;
+}
+
+.clean-list {
+    list-style: none;
+    font-family: 'Noto Sans SC', sans-serif;
+}
+
+.clean-list li {
+    margin-bottom: 0.4rem;
 }

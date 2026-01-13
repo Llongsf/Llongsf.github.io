@@ -57,21 +57,30 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // 监听滚动事件
-    window.addEventListener('scroll', highlightNavOnScroll);
+    // 方法一
+    // window.addEventListener('scroll', highlightNavOnScroll);
+
+    // 简单优化：每 100ms 只执行一次
+    let isScrolling;
+    window.addEventListener('scroll', () => {
+        window.cancelAnimationFrame(isScrolling);
+        isScrolling = window.requestAnimationFrame(highlightNavOnScroll);
+    });
     
     // 3. 为项目卡片和照片项添加悬停效果
-    const projectCards = document.querySelectorAll('.project-card');
-    const photoItems = document.querySelectorAll('.photo-item');
+    // const projectCards = document.querySelectorAll('.project-card');
+    // const photoItems = document.querySelectorAll('.photo-item');
     
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-        });
+    
+    // projectCards.forEach(card => {
+    //     card.addEventListener('mouseenter', function() {
+    //         this.style.transform = 'translateY(-5px)';
+    //     });
         
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
+    //     card.addEventListener('mouseleave', function() {
+    //         this.style.transform = 'translateY(0)';
+    //     });
+    // });
     
     // 4. 动态生成十六进制编号（为照片）
     const hexCodes = document.querySelectorAll('.hex-code');

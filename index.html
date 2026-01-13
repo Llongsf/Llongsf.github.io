@@ -37,8 +37,8 @@
         <section id="home" class="hero-section active">
             <div class="hero-content">
                 <div class="name-title">
-                    <h1 class="asm-title">CALL <span class="asm-register">吕万朗</span></h1>
-                    <p class="asm-subtitle"><span class="asm-comment">/* 热爱随手拍的网安仔 */</span></p>
+                    <h1 class="asm-title"><span class="asm-register">吕万朗</span></h1>
+                    <p class="asm-subtitle"><span class="asm-comment">/* 热爱随手拍 */</span></p>
                 </div>
                 <div class="hero-image-container">
                     <!-- 请替换下方src为你个人照片的路径 -->
@@ -55,44 +55,43 @@
         <!-- 项目展示区 -->
         <section id="projects" class="content-section">
             <div class="section-header">
-                <h2><span class="asm-instr">PROC</span> 项目历程 <span class="asm-instr">ENDP</span></h2>
-                <p class="section-desc">以下是我的核心项目，如同精心调用的过程</p>
+                <h2><span class="asm-instr"></span> 项目历程 <span class="asm-instr"></span></h2>
             </div>
             <div class="projects-grid">
-                <div class="project-card">
+                <a class="project-card">
                     <div class="project-header">
-                        <h3 class="project-title"><span class="asm-instr">mov ax,</span> 个人摄影集</h3>
-                        <span class="project-tag">[PORTFOLIO.EXE]</span>
+                        <h3 class="project-title"><span class="asm-instr"></span> 基于OpenGL的三维STL文件查看器</h3>
+                        <span class="project-tag">[LWL.sln]</span>
                     </div>
-                    <p class="project-desc">使用HTML5、CSS3与原生JavaScript构建的响应式在线作品集，实现了汇编风格UI与流畅的图片懒加载。</p>
+                    <p class="project-desc">实现模型的加载、渲染、光照及旋转、平移、缩放操作及线框着色双预览，用于 CAD 模型预览与三维数据可视化。</p>
                     <div class="project-footer">
-                        <span class="tech-tag">HTML/CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Git</span>
+                        <span class="tech-tag">CAD模型预览和数据文件可视化</span>
+                        <span class="tech-tag">模型变换 键鼠交互</span>
+                        <!-- <span class="tech-tag">Git</span> -->
                     </div>
-                </div>
-                <div class="project-card">
-                <div class="project-header">
-                        <h3 class="project-title"><span class="asm-instr">mov dx,</span> 汇编成绩管理系统</h3>
+                </a>
+                <a href="asm-system.html" class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title"><span class="asm-instr"></span> 成绩管理系统</h3>
                         <span class="project-tag">[ASM_SYSTEM.EXE]</span>
                     </div>
-                    <p class="project-desc">基于x86汇编语言开发的学生成绩录入与查询系统，包含成绩计算、排名、搜索等完整功能，采用精确内存管理和冒泡排序算法。</p>
+                    <p class="project-desc">基于x86汇编语言开发, 实现学生成绩录入并保存与查询</p>
                     <div class="project-footer">
                         <span class="tech-tag">x86 Assembly</span>
                         <span class="tech-tag">DOS INT 21h</span>
                         <span class="tech-tag">内存管理</span>
                     </div>
-                </div>
+                </a>
                 <div class="project-card">
                     <div class="project-header">
-                        <h3 class="project-title"><span class="asm-instr">mov cx,</span> 。。。。。。。。</h3>
-                        <span class="project-tag">[SIM8086.ASM]</span>
+                        <h3 class="project-title"><span class="asm-instr"></span> 本科毕设</h3>
+                        <span class="project-tag">[design.pdf]</span>
                     </div>
-                    <p class="project-desc">一个在浏览器中运行的x86汇编指令教学模拟器，包含虚拟寄存器、内存查看器和逐步调试功能。</p>
+                    <p class="project-desc">融合 Transformer 与多特征分析的网约车出行目的预测</p>
                     <div class="project-footer">
-                        <span class="tech-tag">Vue.js</span>
-                        <span class="tech-tag">WebAssembly</span>
-                        <span class="tech-tag">教育工具</span>
+                        <span class="tech-tag">多分类问题</span>
+                        <span class="tech-tag">Transformer ANN</span>
+                        <span class="tech-tag">数据清洗和脱敏</span>
                     </div>
                 </div>
             </div>
@@ -143,27 +142,42 @@
             <div class="about-container">
                 <div class="about-header">
                     <h2><span class="asm-instr">COMMENT</span> *</h2>
-                    <p class="about-subtitle">; 对这个人的“源代码注释”</p>
+                    <p class="about-subtitle">对这个人的注释</p>
                 </div>
                 <div class="about-content">
                     <div class="about-text">
-                        <div class="comment-block">
-                            <p>/*</p>
-                            <p> * 关于我 - 热爱摄影的网安仔</p>
-                            <p> *</p>
-                            <p> * 我痴迷于计算机系统最底层的运行原理，享受在寄存器与内存地址间穿梭的精确控制感。</p>
-                            <p> * 同时，我也通过摄影来观察和记录现实世界的细腻层次，寻找技术与艺术交汇的瞬间。</p>
-                            <p> *</p>
-                            <p> * 专业技能段:</p>
-                            <p> *   - x86/ARM 汇编语言程序设计</p>
-                            <p> *   - C/C++ 系统级编程</p>
-                            <p> *   - 前端开发 (HTML5, CSS3, JavaScript)</p>
-                            <p> *   - 数码摄影与后期处理</p>
-                            <p> *</p>
-                            <p> * 联系方式:</p>
-                            <p> *   - Email: llongsf@163.com</p>
-                            <p> *   - GitHub: github.com/Llongsf</p>
-                            <p> */</p>
+                       <div class="comment-block">
+                            <div class="log-entry">
+                                <span class="log-time">[KERNEL_LOG]</span> <span class="log-msg">正在加载用户画像...</span>
+                            </div>
+                            
+                            <p class="bio-text">
+                                你好，我是吕万朗。在数字世界里，我是一名痴迷于<strong>底层逻辑</strong>的网络安全探索者；在现实维度中，我是一个捕捉<strong>光影细节</strong>的观察者。
+                            </p>
+
+                            <p class="bio-text">
+                                我不满足于仅仅使用工具，更渴望拆解工具。从 x86 寄存器的每一次跳变，到相机光圈的每一次开合，我所追求的皆是<strong>“精确控制”</strong>带来的美感。对我而言，编写一段优雅的汇编代码，与定格一幅完美的日落，本质上都是在混乱的世界中寻找秩序。
+                            </p>
+
+                            <div class="skills-section">
+                                <p class="section-label">; 核心技能栈 (STACK_SEGMENT)</p>
+                                <ul class="clean-list">
+                                    <li>> <strong>逆向工程 & 网安</strong>：擅长二进制分析，熟悉系统底层漏洞挖掘。</li>
+                                    <li>> <strong>底层编程</strong>：精通 x86/ARM 汇编，熟练掌握 C/C++ 系统级开发。</li>
+                                    <li>> <strong>全栈开发</strong>：能够构建像本站一样精确交互的 Web 应用。</li>
+                                    <li>> <strong>视觉创作</strong>：数码摄影后期与色彩管理。</li>
+                                </ul>
+                            </div>
+
+                            <div class="contact-info">
+                                <p class="section-label">; 握手协议 (HANDSHAKE)</p>
+                                <p>Email: llongsf@163.com</p>
+                                <p>GitHub: github.com/Llongsf</p>
+                            </div>
+                            
+                            <div class="log-entry">
+                                <span class="log-time">[SYSTEM]</span> <span class="log-msg">等待外部中断信号...</span>
+                            </div>
                         </div>
                     </div>
                     <div class="about-image">
