@@ -40,25 +40,36 @@
 
             <!-- 系统功能概览 -->
             <div class="asm-system-overview">
-                <div class="feature-card">
-                    <div class="feature-icon">1</div>
-                    <h3>学生信息录入</h3>
-                    <p>输入姓名、学号、16次平时成绩和大作业成绩</p>
+                <div class="feature-card process-step">
+                    <div class="step-badge">step 01</div>
+                    <div class="feature-icon"><span class="asm-instr">IN</span></div>
+                    <h3>数据录入</h3>
+                    <p class="asm-comment">; 录入姓名与16次成绩</p>
+                    <p>buffer -> [DS:0000h]</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">2</div>
-                    <h3>数据存储结构</h3>
-                    <p>每行105字节，按固定偏移地址存储各项数据</p>
+
+                <div class="feature-card process-step">
+                    <div class="step-badge">step 02</div>
+                    <div class="feature-icon"><span class="asm-instr">MOV</span></div>
+                    <h3>内存布局</h3>
+                    <p class="asm-comment">; 105字节/人 对齐存储</p>
+                    <p>[Base + Index * 105]</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">3</div>
-                    <h3>成绩计算</h3>
-                    <p>平时成绩×40% + 大作业×60% = 最终成绩</p>
+
+                <div class="feature-card process-step">
+                    <div class="step-badge">step 03</div>
+                    <div class="feature-icon"><span class="asm-instr">MUL</span></div>
+                    <h3>加权计算</h3>
+                    <p class="asm-comment">; 平时*40% + 期末*60%</p>
+                    <p>AX = AL * 0.4</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">4</div>
-                    <h3>排序与统计</h3>
-                    <p>按最终成绩排名，统计各分数段人数</p>
+
+                <div class="feature-card process-step">
+                    <div class="step-badge">step 04</div>
+                    <div class="feature-icon"><span class="asm-instr">CMP</span></div>
+                    <h3>冒泡排序</h3>
+                    <p class="asm-comment">; 按最终成绩降序排列</p>
+                    <p>JA SWAP_DATA</p>
                 </div>
             </div>
 

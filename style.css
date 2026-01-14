@@ -26,18 +26,20 @@ body {
 /* ====== 二进制装饰点阵 ====== */
 .binary-decor {
     position: fixed;
-    color: var(--color-border);
+    /* 改用稍深一点的颜色变量，或者直接提高透明度 */
+    color: var(--color-hex); 
     font-family: 'Courier New', monospace;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    opacity: 0.15;
-    z-index: 1;
+    font-size: 0.9rem; /* 稍微调大一点 */
+    letter-spacing: 4px; /* 增加字间距，更有科技感 */
+    opacity: 0.5; /* 提高不透明度：0.15 -> 0.25 */
+    z-index: 0; /* 确保在背景层，但在内容之下 */
     pointer-events: none;
     user-select: none;
 }
 
 .binary-top {
-    top: 20px;
+    /* 下移避开导航栏：90px */
+    top: 90px; 
     left: 50%;
     transform: translateX(-50%);
 }

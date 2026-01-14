@@ -40,11 +40,25 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     const photoWall = document.getElementById('photoWall');
+    
+    // 动态获取照片数据
+    fetch('photos.json')
+        .then(response => response.json())
+        .then(data => {
+            // 拿到数据后，调用渲染函数
+            // 注意：这里 data 就是你的 photos 数组
+            renderPhotos(data, 'all'); 
+            
+            // 初始化其他逻辑（比如更新计数器）
+            document.getElementById('photoCount').textContent = data.length;
+        })
+        .catch(error => console.error('Error loading gallery index:', error));
+
     const filterButtons = document.querySelectorAll('.filter-btn');
     const photoCountElement = document.getElementById('photoCount');
     
     // 2. 初始化：渲染所有照片并更新计数
-    function renderPhotos(filter = 'all') {
+    function renderPhotos(photos, filter) {
         photoWall.innerHTML = '';
         let filteredPhotos = photos;
         
