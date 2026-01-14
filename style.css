@@ -721,7 +721,7 @@ body {
 
 /* 代码展示区 */
 .code-section {
-    margin: 3rem 0;
+    margin: 0.5rem 0;
     border: 1px solid var(--color-border);
 }
 
@@ -775,7 +775,7 @@ body {
 
 .code-container code {
     font-family: 'Consolas', 'Monaco', monospace;
-    font-size: 0.9rem;
+    font-size: 1.0rem;
     line-height: 1.5;
     color: #f8f8f2;
 }

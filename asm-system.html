@@ -32,10 +32,10 @@
 
     <!-- 主内容区 -->
     <main class="fullscreen-main">
-        <section class="content-section" style="padding-top: 100px; max-width: 1100px;">
+        <section class="content-section" style="padding-top: 150px; max-width: 1100px;">
             <div class="section-header">
                 <h2><span class="asm-instr">INT 21h</span> 汇编成绩管理系统 <span class="asm-instr">ENDP</span></h2>
-                <p class="section-desc">; 基于x86汇编语言开发的学生成绩录入与查询系统 | 总代码量: 约500行</p>
+                <p class="section-desc">; 基于x86汇编语言开发的学生成绩录入与查询系统 | 总代码量: 约1200行</p>
             </div>
 
             <!-- 系统功能概览 -->
@@ -58,14 +58,6 @@
 
                 <div class="feature-card process-step">
                     <div class="step-badge">step 03</div>
-                    <div class="feature-icon"><span class="asm-instr">MUL</span></div>
-                    <h3>加权计算</h3>
-                    <p class="asm-comment">; 平时*40% + 期末*60%</p>
-                    <p>AX = AL * 0.4</p>
-                </div>
-
-                <div class="feature-card process-step">
-                    <div class="step-badge">step 04</div>
                     <div class="feature-icon"><span class="asm-instr">CMP</span></div>
                     <h3>冒泡排序</h3>
                     <p class="asm-comment">; 按最终成绩降序排列</p>
@@ -93,7 +85,7 @@
                     <h3><span class="asm-instr">CODE</span> SEGMENT</h3>
                     <div class="code-actions">
                         <button class="code-copy-btn" onclick="copyCode()">
-                            <span class="asm-instr">MOV</span> 复制代码
+                            <span class="asm-instr"></span> COPY
                         </button>
                     </div>
                 </div>
@@ -230,7 +222,7 @@ code ends
 end start</code></pre>
                 </div>
                 <div class="code-footer">
-                    <p class="code-note">; 注：此为系统核心代码片段，完整代码约500行，实现了完整的成绩管理功能。</p>
+                    <p class="code-note">; 注：此为系统核心代码片段，完整代码约1200行，实现了完整的成绩管理功能。</p>
                 </div>
             </div>
 
@@ -239,7 +231,7 @@ end start</code></pre>
                 <h3><span class="asm-instr">FEATURES</span> 系统技术特点</h3>
                 <div class="features-grid">
                     <div class="tech-item">
-                        <h4><span class="asm-hex">0x01</span> 内存精确管理</h4>
+                        <h4><span class="asm-hex">0x01</span> 合理内存管理</h4>
                         <p>使用固定偏移地址访问数据，每行105字节精确布局。</p>
                     </div>
                     <div class="tech-item">
