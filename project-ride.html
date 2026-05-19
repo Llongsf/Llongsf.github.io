@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目详情 | 网约车出行目的预测模型</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="text-slate-300">
+    <div class="max-w-4xl mx-auto px-6 py-12">
+        <a href="index.html#projects" class="inline-flex items-center text-sm text-slate-400 hover:text-cyan-400 mb-8"><i class="fa-solid fa-arrow-left mr-2"></i> 返回项目列表</a>
+        
+        <article class="space-y-6">
+            <header class="border-b border-slate-800 pb-6">
+                <span class="text-xs mono-font text-cyan-400 bg-cyan-950/40 px-2.5 py-1 rounded border border-cyan-900/50">深度学习 & 安全合规</span>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-white mt-4">网约车出行目的预测模型系统报告</h1>
+            </header>
+
+            <section class="space-y-4">
+                <h2 class="text-xl font-bold text-slate-100 flex items-center"><span class="w-1.5 h-4 bg-cyan-500 mr-2.5 rounded-sm"></span>1. 背景与核心架构</h2>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                    本系统依托北京市网约车真实海量高维订单，整合周边细粒度 POI 数据进行地理实体对齐。架构设计上，底层采用 Transformer 的自注意力机制捕捉长时间步的空间出行依赖，上层嵌套全连接人工神经网络（ANN）完成多分类预测任务。
+                </p>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="text-xl font-bold text-slate-100 flex items-center"><span class="w-1.5 h-4 bg-cyan-500 mr-2.5 rounded-sm"></span>2. 安全脱敏与防御方案</h2>
+                <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-xl text-sm text-slate-400">
+                    在工程流批处理 <strong>70万+ 条</strong> 空间轨迹隐私敏感数据时，系统严格执行 K-Anonymity（K-匿名化）算法与高阶扰动差分隐私脱敏，从源头切断通过时空特征反向推导用户身份的可能。
+                </div>
+            </section>
+        </article>
+    </div>
+</body>
+</html>
