@@ -33,9 +33,10 @@
         </div>
     </header>
 
-    <!-- Hero Section (新增头像留空区) -->
-    <section class="relative min-h-screen flex items-center justify-center pt-24 cyber-grid">
-        <div class="max-w-5xl px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center z-10">
+    <!-- Hero Section：Matrix 代码雨背景 -->
+    <section class="hero-matrix-wrap cyber-grid-light relative min-h-screen flex items-center justify-center pt-24">
+        <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+        <div class="hero-content max-w-5xl px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center w-full mx-auto">
             
             <!-- 文字介绍 -->
             <div class="md:col-span-7 text-center md:text-left">
@@ -73,6 +74,60 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- 关于我 + 黑客控制台 -->
+    <section id="about" class="py-24 max-w-7xl px-6 md:px-12 mx-auto scroll-mt-20">
+        <div class="flex items-center space-x-4 mb-10">
+            <h2 class="text-2xl md:text-3xl font-bold text-white tracking-wide">关于我 / Terminal</h2>
+            <div class="h-[1px] bg-gradient-to-r from-cyan-500 to-transparent flex-grow"></div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            <div class="space-y-4 text-sm text-slate-400 leading-relaxed">
+                <p>网络空间安全与机械工程自动化交叉背景。我习惯用工程化思维做 AI 与安全合规：从数据脱敏、对抗训练到可落地的全栈交付。</p>
+                <p>在右侧终端输入 <code class="mono-font text-cyan-400 text-xs px-1.5 py-0.5 bg-slate-800 rounded">help</code>、<code class="mono-font text-cyan-400 text-xs px-1.5 py-0.5 bg-slate-800 rounded">whoami</code>、<code class="mono-font text-cyan-400 text-xs px-1.5 py-0.5 bg-slate-800 rounded">projects</code> 探索更多信息。</p>
+            </div>
+            <div id="hacker-terminal" class="terminal-window rounded-xl overflow-hidden">
+                <div class="flex items-center gap-2 px-4 py-2.5 bg-slate-900/80 border-b border-slate-800">
+                    <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                    <span class="w-3 h-3 rounded-full bg-amber-400/80"></span>
+                    <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                    <span class="ml-2 text-[10px] mono-font text-slate-500">bash — portfolio</span>
+                </div>
+                <div data-terminal-output class="terminal-output p-4 space-y-1"></div>
+                <div class="terminal-input-row flex items-center gap-2 px-4 py-3 bg-slate-950/60">
+                    <span data-terminal-prompt class="mono-font text-xs text-emerald-400 shrink-0"></span>
+                    <input data-terminal-input type="text" autocomplete="off" spellcheck="false" class="terminal-input flex-1 bg-transparent mono-font text-sm text-cyan-100 placeholder-slate-600" placeholder="输入命令，例如 help" aria-label="终端命令输入">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 历练经历 -->
+    <section id="experience" class="py-16 border-y border-slate-900/80 bg-slate-900/20 scroll-mt-20">
+        <div class="max-w-7xl px-6 md:px-12 mx-auto">
+            <div class="flex items-center space-x-4 mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold text-white tracking-wide">历练经历</h2>
+                <div class="h-[1px] bg-gradient-to-r from-cyan-500 to-transparent flex-grow"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+                <div class="glass-card rounded-xl p-5 border-l-2 border-cyan-500">
+                    <p class="mono-font text-xs text-cyan-400 mb-2">2022 — 至今</p>
+                    <h3 class="text-white font-semibold mb-2">硕士 · 机械工程与自动化</h3>
+                    <p class="text-slate-400">智能系统、深度学习与工程仿真交叉研究。</p>
+                </div>
+                <div class="glass-card rounded-xl p-5 border-l-2 border-emerald-500">
+                    <p class="mono-font text-xs text-emerald-400 mb-2">学生工作</p>
+                    <h3 class="text-white font-semibold mb-2">班委 / 团委副书记 / 秘书</h3>
+                    <p class="text-slate-400">统筹 5+ 场校级大型活动，跨部门协作与方案落地。</p>
+                </div>
+                <div class="glass-card rounded-xl p-5 border-l-2 border-cyan-500/60">
+                    <p class="mono-font text-xs text-cyan-400 mb-2">竞赛 & 安全</p>
+                    <h3 class="text-white font-semibold mb-2">CTF · 逆向 · 取证</h3>
+                    <p class="text-slate-400">实战化攻防与漏洞分析，支撑安全向 AI 项目。</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -185,7 +240,7 @@
                 <span class="text-xs text-slate-500 block mb-1">官方邮箱</span>
                 <span class="text-sm text-slate-300 font-medium break-all">your-email@example.com</span>
             </a>
-            <a href="https://github.com" target="_blank" class="p-5 bg-slate-800/40 border border-slate-800 hover:border-emerald-500/30 rounded-xl group transition-all duration-300">
+            <a href="https://github.com/Llongsf" target="_blank" rel="noopener" class="p-5 bg-slate-800/40 border border-slate-800 hover:border-emerald-500/30 rounded-xl group transition-all duration-300">
                 <i class="fa-brands fa-github text-2xl text-emerald-400 group-hover:scale-110 transition-transform mb-3 block"></i>
                 <span class="text-xs text-slate-500 block mb-1">开源社区</span>
                 <span class="text-sm text-slate-300 font-medium block">GitHub Profile</span>
@@ -206,5 +261,7 @@
     
     <!-- 引入独立JS脚本 -->
     <script src="js/main.js"></script>
+    <script src="js/matrix-rain.js"></script>
+    <script src="js/terminal.js"></script>
 </body>
 </html>

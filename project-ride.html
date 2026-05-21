@@ -7,16 +7,66 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@2.0.1/dist/chartjs-chart-matrix.min.js"></script>
 </head>
-<body class="text-slate-300">
-    <div class="max-w-4xl mx-auto px-6 py-12">
+<body class="text-slate-300 bg-[#0B0F19]">
+    <div class="max-w-6xl mx-auto px-6 py-12">
         <a href="index.html#projects" class="inline-flex items-center text-sm text-slate-400 hover:text-cyan-400 mb-8"><i class="fa-solid fa-arrow-left mr-2"></i> 返回项目列表</a>
-        
-        <article class="space-y-6">
+
+        <article class="space-y-10">
             <header class="border-b border-slate-800 pb-6">
-                <span class="text-xs mono-font text-cyan-400 bg-cyan-950/40 px-2.5 py-1 rounded border border-cyan-900/50">深度学习 & 安全合规</span>
+                <span class="text-xs mono-font text-cyan-400 bg-cyan-950/40 px-2.5 py-1 rounded border border-cyan-900/50">深度学习 & 安全合规 · 数字孪生仪表盘</span>
                 <h1 class="text-3xl md:text-4xl font-extrabold text-white mt-4">网约车出行目的预测模型系统报告</h1>
+                <p class="text-sm text-slate-500 mt-3 mono-font">// live metrics · simulated for portfolio demo</p>
             </header>
+
+            <!-- 动态仪表盘 -->
+            <section class="space-y-6">
+                <h2 class="text-xl font-bold text-slate-100 flex items-center">
+                    <span class="w-1.5 h-4 bg-cyan-500 mr-2.5 rounded-sm"></span>模型评估仪表盘
+                </h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="dashboard-panel">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-sm font-semibold text-white">混淆矩阵 (5 类出行目的)</h3>
+                            <span class="text-[10px] mono-font text-cyan-400 px-2 py-0.5 rounded bg-cyan-950/50 border border-cyan-900/40">TEST SET · N=12,847</span>
+                        </div>
+                        <div class="chart-box">
+                            <canvas id="confusion-matrix-chart"></canvas>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-3">对角线高亮表示分类正确；非对角为误分类样本量（脱敏后统计）。</p>
+                    </div>
+                    <div class="dashboard-panel">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-sm font-semibold text-white">对抗训练鲁棒性曲线</h3>
+                            <span class="text-[10px] mono-font text-emerald-400 px-2 py-0.5 rounded bg-emerald-950/50 border border-emerald-900/40 animate-pulse">LIVE</span>
+                        </div>
+                        <div class="chart-box">
+                            <canvas id="robustness-chart"></canvas>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-3">粉线为 PGD-10 攻击下鲁棒准确率；绿线为 FGSM 对抗训练收敛轨迹。</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="dashboard-panel py-4">
+                        <p class="text-2xl font-bold text-cyan-400 mono-font">90.9%</p>
+                        <p class="text-xs text-slate-500 mt-1">干净集 Top-1</p>
+                    </div>
+                    <div class="dashboard-panel py-4">
+                        <p class="text-2xl font-bold text-emerald-400 mono-font">87.6%</p>
+                        <p class="text-xs text-slate-500 mt-1">对抗训练后</p>
+                    </div>
+                    <div class="dashboard-panel py-4">
+                        <p class="text-2xl font-bold text-pink-400 mono-font">81.2%</p>
+                        <p class="text-xs text-slate-500 mt-1">PGD 鲁棒界</p>
+                    </div>
+                    <div class="dashboard-panel py-4">
+                        <p class="text-2xl font-bold text-slate-200 mono-font">704K+</p>
+                        <p class="text-xs text-slate-500 mt-1">K-匿名轨迹</p>
+                    </div>
+                </div>
+            </section>
 
             <section class="space-y-4">
                 <h2 class="text-xl font-bold text-slate-100 flex items-center"><span class="w-1.5 h-4 bg-cyan-500 mr-2.5 rounded-sm"></span>1. 背景与核心架构</h2>
@@ -28,10 +78,11 @@
             <section class="space-y-4">
                 <h2 class="text-xl font-bold text-slate-100 flex items-center"><span class="w-1.5 h-4 bg-cyan-500 mr-2.5 rounded-sm"></span>2. 安全脱敏与防御方案</h2>
                 <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-xl text-sm text-slate-400">
-                    在工程流批处理 <strong>70万+ 条</strong> 空间轨迹隐私敏感数据时，系统严格执行 K-Anonymity（K-匿名化）算法与高阶扰动差分隐私脱敏，从源头切断通过时空特征反向推导用户身份的可能。
+                    在工程流批处理 <strong>70万+ 条</strong> 空间轨迹隐私敏感数据时，系统严格执行 K-Anonymity（K-匿名化）算法与高阶扰动差分隐私脱敏，从源头切断通过时空特征反向推导用户身份的可能。对抗训练模块与上方鲁棒性曲线联动监控部署前指标。
                 </div>
             </section>
         </article>
     </div>
+    <script src="js/charts-ride.js"></script>
 </body>
 </html>
