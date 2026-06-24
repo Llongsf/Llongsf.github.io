@@ -1,267 +1,364 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="scroll-smooth">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[您的名字] | 个人作品集</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome 图标 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- 引入独立CSS文件 -->
+    <title>吕万朗 | 网络安全 & 技术 portfolio</title>
+    <meta name="description" content="吕万朗的个人网站 - 网络空间安全专业，热衷于安全技术与创新">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="text-slate-300 overflow-x-hidden selection:bg-cyan-500 selection:text-black">
+<body>
+    <!-- Binary Rain Background -->
+    <canvas id="matrix-canvas"></canvas>
 
-    <!-- 导航栏 -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-[#0B0F19]/80 backdrop-blur-md border-b border-slate-800/60">
-        <div class="max-w-7xl px-6 md:px-12 py-4 flex justify-between items-center mx-auto">
-            <a href="#" class="mono-font text-xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">&lt;PORTFOLIO /&gt;</a>
-            <nav class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#about" class="hover:text-cyan-400 transition-colors">关于我</a>
-                <a href="#experience" class="hover:text-cyan-400 transition-colors">历练经历</a>
-                <a href="#projects" class="hover:text-emerald-400 transition-colors">深度项目</a>
-                <a href="photography.html" class="text-emerald-400 hover:underline flex items-center"><i class="fa-solid fa-camera mr-1"></i> 摄影作品</a>
-            </nav>
-            <button id="menu-btn" class="md:hidden text-slate-300"><i class="fa-solid fa-bars text-xl"></i></button>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">LWL<span>.dev</span></a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">☰</button>
+            <ul class="nav-links">
+                <li><a href="#about" class="active">关于</a></li>
+                <li><a href="#education">教育</a></li>
+                <li><a href="#skills">技能</a></li>
+                <li><a href="#experience">经历</a></li>
+                <li><a href="#projects">项目</a></li>
+                <li><a href="#awards">荣誉</a></li>
+            </ul>
         </div>
-        <div id="mobile-menu" class="hidden bg-[#0B0F19] border-b border-slate-800 px-6 py-4 space-y-3">
-            <a href="#about" class="block text-sm">关于我</a>
-            <a href="#experience" class="block text-sm">历练经历</a>
-            <a href="#projects" class="block text-sm">深度项目</a>
-            <a href="photography.html" class="block text-sm text-emerald-400">摄影作品</a>
-        </div>
-    </header>
+    </nav>
 
-    <!-- Hero Section：Matrix 代码雨背景 -->
-    <section class="hero-matrix-wrap cyber-grid-light relative min-h-screen flex items-center justify-center pt-24">
-        <canvas id="matrix-canvas" aria-hidden="true"></canvas>
-        <div class="hero-content max-w-5xl px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center w-full mx-auto">
-            
-            <!-- 文字介绍 -->
-            <div class="md:col-span-7 text-center md:text-left">
-                <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/50 mb-6">
-                    <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-                    <span class="text-xs mono-font text-cyan-400 tracking-wide">SECURE_AI & AUTOMATION</span>
-                </div>
-                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6">
-                    你好，我是 <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">[您的姓名]</span>
-                </h1>
-                <p class="text-base md:text-lg text-slate-400 mb-8 leading-relaxed">
-                    网络空间安全 & 机械工程与自动化硕士。主攻全栈安全架构与智能自动化系统。
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <img src="assets/avatar.jpg" alt="吕万朗" class="hero-avatar">
+            <div class="hero-greeting">// HELLO WORLD</div>
+            <h1 class="hero-name">吕万朗</h1>
+            <p class="hero-title">网络安全 · 深度学习 · 全栈开发</p>
+            <p class="hero-tagline">
+                暨南大学网络空间安全本科，即将赴香港中文大学攻读机械工程与自动化硕士。
+                热衷于Web安全防护与AI安全，致力于将安全技术落地到实际场景中。
+            </p>
+            <div class="hero-links">
+                <a href="mailto:llongsf@163.com">📧 邮箱</a>
+                <a href="tel:13380287801">📱 电话</a>
+                <a href="https://github.com/Llongsf" target="_blank">⌨ GitHub</a>
+            </div>
+            <div class="terminal-line">
+                <span class="prompt">~/lwl</span> cat info.txt — 雅思6.5 | SCSA-T认证 | CTF选手
+                <span class="cursor"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="section-header fade-in">
+            <div class="section-label">About</div>
+            <h2 class="section-title">关于我</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="about-grid">
+            <div class="about-text fade-in">
+                <p>
+                    我是吕万朗，一名专注于网络安全的技术爱好者。本科就读于暨南大学网络空间安全专业，
+                    期间深入学习了Web安全防护、逆向工程、CTF竞赛等安全领域知识，
+                    同时也积累了深度学习、数据建模和全栈开发的实践经验。
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#projects" class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium rounded-lg text-center">浏览项目</a>
-                    <a href="photography.html" class="px-6 py-3 bg-slate-800/80 border border-slate-700 rounded-lg text-center text-emerald-400 hover:bg-slate-700"><i class="fa-solid fa-camera mr-2"></i>业余摄影集</a>
-                </div>
+                <p>
+                    在中国电信实习期间，我参与了Flask工单系统的安全开发与护网行动安全监控，
+                    深刻体会到安全技术在企业级场景中的落地挑战。在重明科技实习时，
+                    我负责智能安全监控方案的技术调研与设备选型，兼顾网络安全与AI模型安全。
+                </p>
+                <p>
+                    2025年9月，我将前往香港中文大学攻读机械工程与自动化硕士，
+                    期待在新的领域继续探索安全与智能的交叉点。
+                </p>
             </div>
-
-            <!-- 头像留空区域 (右侧) -->
-            <div class="md:col-span-5 flex justify-center">
-                <div class="relative group">
-                    <!-- 霓虹科技感外框 -->
-                    <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
-                    <!-- 头像容器 -->
-                    <div class="relative w-64 h-64 md:w-72 md:h-72 rounded-2xl bg-slate-900 border border-slate-700 overflow-hidden flex items-center justify-center">
-                        <!-- ⚠️ 后期只需将真实照片命名为 avatar.jpg 放入 assets 文件夹即可替换占位图 -->
-                        <img src="assets/avatar.jpg" alt="Profile" onerror="this.style.display='none'; document.getElementById('avatar-placeholder').classList.remove('hidden')" class="w-full h-full object-cover">
-                        <!-- 默认占位视觉 -->
-                        <div id="avatar-placeholder" class="hidden text-center p-6">
-                            <i class="fa-solid fa-user-shield text-5xl text-slate-600 mb-3 block"></i>
-                            <p class="text-xs text-slate-500 mono-font">PLACE_AVATAR_HERE<br>(assets/avatar.jpg)</p>
-                        </div>
-                    </div>
+            <div class="about-details fade-in">
+                <div class="about-detail">
+                    <span class="label">姓名</span>
+                    <span class="value">吕万朗</span>
                 </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- 关于我 + 黑客控制台 -->
-    <section id="about" class="py-24 max-w-7xl px-6 md:px-12 mx-auto scroll-mt-20">
-        <div class="flex items-center space-x-4 mb-10">
-            <h2 class="text-2xl md:text-3xl font-bold text-white tracking-wide">关于我 / Terminal</h2>
-            <div class="h-[1px] bg-gradient-to-r from-cyan-500 to-transparent flex-grow"></div>
-        </div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-            <div class="space-y-4 text-sm text-slate-400 leading-relaxed">
-                <p>网络空间安全与机械工程自动化交叉背景。我习惯用工程化思维做 AI 与安全合规：从数据脱敏、对抗训练到可落地的全栈交付。</p>
-                <p>在右侧终端输入 <code class="mono-font text-cyan-400 text-xs px-1.5 py-0.5 bg-slate-800 rounded">help</code>、<code class="mono-font text-cyan-400 text-xs px-1.5 py-0.5 bg-slate-800 rounded">whoami</code>、<code class="mono-font text-cyan-400 text-xs px-1.5 py-0.5 bg-slate-800 rounded">projects</code> 探索更多信息。</p>
-            </div>
-            <div id="hacker-terminal" class="terminal-window rounded-xl overflow-hidden">
-                <div class="flex items-center gap-2 px-4 py-2.5 bg-slate-900/80 border-b border-slate-800">
-                    <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
-                    <span class="w-3 h-3 rounded-full bg-amber-400/80"></span>
-                    <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
-                    <span class="ml-2 text-[10px] mono-font text-slate-500">bash — portfolio</span>
+                <div class="about-detail">
+                    <span class="label">出生</span>
+                    <span class="value">2003.08</span>
                 </div>
-                <div data-terminal-output class="terminal-output p-4 space-y-1"></div>
-                <div class="terminal-input-row flex items-center gap-2 px-4 py-3 bg-slate-950/60">
-                    <span data-terminal-prompt class="mono-font text-xs text-emerald-400 shrink-0"></span>
-                    <input data-terminal-input type="text" autocomplete="off" spellcheck="false" class="terminal-input flex-1 bg-transparent mono-font text-sm text-cyan-100 placeholder-slate-600" placeholder="输入命令，例如 help" aria-label="终端命令输入">
+                <div class="about-detail">
+                    <span class="label">邮箱</span>
+                    <span class="value">llongsf@163.com</span>
+                </div>
+                <div class="about-detail">
+                    <span class="label">电话</span>
+                    <span class="value">13380287801</span>
+                </div>
+                <div class="about-detail">
+                    <span class="label">英语</span>
+                    <span class="value">雅思6.5 / CET-6</span>
+                </div>
+                <div class="about-detail">
+                    <span class="label">认证</span>
+                    <span class="value">深信服SCSA-T安全技术工程师</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 历练经历 -->
-    <section id="experience" class="py-16 border-y border-slate-900/80 bg-slate-900/20 scroll-mt-20">
-        <div class="max-w-7xl px-6 md:px-12 mx-auto">
-            <div class="flex items-center space-x-4 mb-10">
-                <h2 class="text-2xl md:text-3xl font-bold text-white tracking-wide">历练经历</h2>
-                <div class="h-[1px] bg-gradient-to-r from-cyan-500 to-transparent flex-grow"></div>
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="section-header fade-in">
+            <div class="section-label">Education</div>
+            <h2 class="section-title">教育背景</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="timeline fade-in">
+            <div class="timeline-item">
+                <div class="timeline-date">2025.09 - 2026.06</div>
+                <div class="timeline-title">香港中文大学</div>
+                <div class="timeline-subtitle">机械工程与自动化 · 硕士</div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-                <div class="glass-card rounded-xl p-5 border-l-2 border-cyan-500">
-                    <p class="mono-font text-xs text-cyan-400 mb-2">2022 — 至今</p>
-                    <h3 class="text-white font-semibold mb-2">硕士 · 机械工程与自动化</h3>
-                    <p class="text-slate-400">智能系统、深度学习与工程仿真交叉研究。</p>
+            <div class="timeline-item">
+                <div class="timeline-date">2021.09 - 2025.07</div>
+                <div class="timeline-title">暨南大学</div>
+                <div class="timeline-subtitle">网络空间安全 · 本科</div>
+                <ul class="timeline-details">
+                    <li>2025届毕业优秀学生骨干奖学金</li>
+                    <li>2022-2024优秀学生骨干荣誉称号</li>
+                    <li>2022-2023优秀学生三等奖学金</li>
+                    <li>网安系团总支副书记、学生代表、辅导员秘书</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="section-header fade-in">
+            <div class="section-label">Skills</div>
+            <h2 class="section-title">技术能力</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category fade-in">
+                <div class="skill-category-title">
+                    <span class="icon">🔒</span> 安全技术
                 </div>
-                <div class="glass-card rounded-xl p-5 border-l-2 border-emerald-500">
-                    <p class="mono-font text-xs text-emerald-400 mb-2">学生工作</p>
-                    <h3 class="text-white font-semibold mb-2">班委 / 团委副书记 / 秘书</h3>
-                    <p class="text-slate-400">统筹 5+ 场校级大型活动，跨部门协作与方案落地。</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Web安全</span>
+                    <span class="skill-tag">SQL注入</span>
+                    <span class="skill-tag">CSRF</span>
+                    <span class="skill-tag">XSS</span>
+                    <span class="skill-tag">逆向工程</span>
+                    <span class="skill-tag">IDA Pro</span>
+                    <span class="skill-tag">010Editor</span>
+                    <span class="skill-tag">CTF</span>
+                    <span class="skill-tag">电子数据取证</span>
+                    <span class="skill-tag">WAF/IDS</span>
+                    <span class="skill-tag">护网行动</span>
                 </div>
-                <div class="glass-card rounded-xl p-5 border-l-2 border-cyan-500/60">
-                    <p class="mono-font text-xs text-cyan-400 mb-2">竞赛 & 安全</p>
-                    <h3 class="text-white font-semibold mb-2">CTF · 逆向 · 取证</h3>
-                    <p class="text-slate-400">实战化攻防与漏洞分析，支撑安全向 AI 项目。</p>
+            </div>
+            <div class="skill-category fade-in">
+                <div class="skill-category-title">
+                    <span class="icon">🤖</span> AI & 数据
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">Transformer</span>
+                    <span class="skill-tag">深度学习</span>
+                    <span class="skill-tag">数据建模</span>
+                    <span class="skill-tag">特征工程</span>
+                    <span class="skill-tag">Matplotlib</span>
+                    <span class="skill-tag">Matlab</span>
+                    <span class="skill-tag">对抗性训练</span>
+                </div>
+            </div>
+            <div class="skill-category fade-in">
+                <div class="skill-category-title">
+                    <span class="icon">💻</span> 开发技术
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Flask</span>
+                    <span class="skill-tag">RESTful API</span>
+                    <span class="skill-tag">PyMySQL</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">参数化查询</span>
+                    <span class="skill-tag">连接池</span>
+                    <span class="skill-tag">HTML/CSS/JS</span>
+                </div>
+            </div>
+            <div class="skill-category fade-in">
+                <div class="skill-category-title">
+                    <span class="icon">🛡</span> 安全合规
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">个人信息保护法</span>
+                    <span class="skill-tag">数据脱敏</span>
+                    <span class="skill-tag">SOC平台</span>
+                    <span class="skill-tag">安全审计</span>
+                    <span class="skill-tag">应急响应</span>
+                    <span class="skill-tag">安全认证</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 模块四：项目区域 (卡片已修改为跳转独立展示页) -->
-    <section id="projects" class="py-24 max-w-7xl px-6 md:px-12 mx-auto scroll-mt-16">
-        <div class="flex items-center space-x-4 mb-12">
-            <h2 class="text-2xl md:text-3xl font-bold text-white tracking-wide">核心科研/开发项目</h2>
-            <div class="h-[1px] bg-gradient-to-r from-cyan-500 to-transparent flex-grow"></div>
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="section-header fade-in">
+            <div class="section-label">Experience</div>
+            <h2 class="section-title">实习经历</h2>
+            <div class="section-divider"></div>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- 项目 1 卡片 -->
-            <div class="glass-card glow-cyan rounded-2xl p-6 md:p-8 flex flex-col justify-between hover:-translate-y-2">
-                <div>
-                    <h4 class="text-xl font-bold text-white mb-3">网约车出行目的预测模型</h4>
-                    <p class="text-sm text-slate-400 mb-6 leading-relaxed">融合 Transformer 与 ANN 的深度学习多分类预测模型，严格实施数据脱敏与对抗性训练...</p>
-                </div>
-                <a href="project-ride.html" class="text-sm font-semibold text-cyan-400 hover:text-cyan-300 flex items-center">
-                    查看完整技术报告 <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
-                </a>
-            </div>
-
-            <!-- 项目 2 卡片 -->
-            <div class="glass-card glow-emerald rounded-2xl p-6 md:p-8 flex flex-col justify-between hover:-translate-y-2">
-                <div>
-                    <h4 class="text-xl font-bold text-white mb-3">气候经济耦合系统研究</h4>
-                    <p class="text-sm text-slate-400 mb-6 leading-relaxed">处理 2GB+ 巨量多源气象数据，基于 Matplotlib、Matlab 创建交互式数据沙盘仪表板...</p>
-                </div>
-                <a href="project-climate.html" class="text-sm font-semibold text-emerald-400 hover:text-emerald-300 flex items-center">
-                    查看完整研究成果 <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 模块五：Skills & Keywords (核心技能多维矩阵) -->
-    <section id="skills" class="py-24 bg-slate-900/30 border-y border-slate-900 scroll-mt-16">
-        <div class="max-w-7xl px-6 md:px-12 mx-auto">
-            <div class="flex items-center space-x-4 mb-16">
-                <h2 class="text-2xl md:text-3xl font-bold text-white tracking-wide">核心技能 / Skills</h2>
-                <div class="h-[1px] bg-gradient-to-r from-emerald-500 to-transparent flex-grow"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- 技能1 -->
-                <div class="p-6 rounded-2xl bg-slate-800/40 border border-slate-800/80">
-                    <div class="w-12 h-12 rounded-xl bg-cyan-950 flex items-center justify-center border border-cyan-800/50 mb-6 text-cyan-400">
-                        <i class="fa-solid fa-user-secret text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-3">技术攻坚与反向工程</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed mb-4">
-                        拥有实战化的 CTF 赛事攻防对抗经验及电子取证基础。能够熟练运用静态反编译及动态调试手段进行深度漏洞拆解与利用。
-                    </p>
-                    <div class="flex flex-wrap gap-1.5 pt-2">
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-900 text-cyan-400 border border-slate-800 font-medium">IDA Pro</span>
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-900 text-cyan-400 border border-slate-800 font-medium">010Editor</span>
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-900 text-cyan-400 border border-slate-800 font-medium">电子取证</span>
-                    </div>
-                </div>
-
-                <!-- 技能2 -->
-                <div class="p-6 rounded-2xl bg-slate-800/40 border border-slate-800/80">
-                    <div class="w-12 h-12 rounded-xl bg-cyan-950 flex items-center justify-center border border-cyan-800/50 mb-6 text-cyan-400">
-                        <i class="fa-solid fa-layer-group text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-3">全栈工程与智能深度学习</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed mb-4">
-                        具备后端规范级分层开发实力，擅长在全栈链路中注入网络安全原生能力。能够快速复现、搭建与调优主流前沿深度学习架构。
-                    </p>
-                    <div class="flex flex-wrap gap-1.5 pt-2">
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-900 text-slate-300 border border-slate-800 font-medium">Flask 框架</span>
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-900 text-slate-300 border border-slate-800 font-medium">PyMySQL 安全池</span>
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-900 text-emerald-400 border border-slate-800 font-medium">Transformer / ANN</span>
-                    </div>
-                </div>
-
-                <!-- 技能3 -->
-                <div class="p-6 rounded-2xl bg-slate-800/40 border border-slate-800/80">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-950 flex items-center justify-center border border-emerald-800/50 mb-6 text-emerald-400">
-                        <i class="fa-solid fa-people-group text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-3">卓越协作与方案工程落地</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed mb-4">
-                        长达 4 年高强度的班委、团委副书记、秘书任职履历。亲手操盘并总指挥 5 次以上校级大型项目活动，具有极佳的业务线拆解与多流派对话协作能力。
-                    </p>
-                    <div class="flex flex-wrap gap-1.5 pt-2">
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-900 text-emerald-400 border border-slate-800 font-medium">跨部门沟通机制</span>
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-900 text-emerald-400 border border-slate-800 font-medium">技术方案矩阵拆解</span>
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-900 text-emerald-400 border border-slate-800 font-medium">敏捷进度监控</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 模块六：Contact (联系方式与页脚) -->
-    <section id="contact" class="py-24 max-w-4xl px-6 mx-auto text-center scroll-mt-16">
-        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/50 mb-6">
-            <span class="text-xs mono-font text-emerald-400 tracking-wide">👋 CONNECT WITH ME</span>
-        </div>
-        <h2 class="text-3xl font-bold text-white mb-4">开启技术合作</h2>
-        <p class="text-sm text-slate-400 max-w-xl mx-auto mb-12">
-            正在寻找具备网络安全嗅觉的智能化开发人才，或是有跨学科项目需要推进落地？欢迎随时与我建立联络。
-        </p>
-
-        <!-- 核心联系链路 -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto mb-16">
-            <a href="mailto:your-email@example.com" class="p-5 bg-slate-800/40 border border-slate-800 hover:border-cyan-500/30 rounded-xl group transition-all duration-300">
-                <i class="fa-solid fa-envelope text-2xl text-cyan-400 group-hover:scale-110 transition-transform mb-3 block"></i>
-                <span class="text-xs text-slate-500 block mb-1">官方邮箱</span>
-                <span class="text-sm text-slate-300 font-medium break-all">your-email@example.com</span>
-            </a>
-            <a href="https://github.com/Llongsf" target="_blank" rel="noopener" class="p-5 bg-slate-800/40 border border-slate-800 hover:border-emerald-500/30 rounded-xl group transition-all duration-300">
-                <i class="fa-brands fa-github text-2xl text-emerald-400 group-hover:scale-110 transition-transform mb-3 block"></i>
-                <span class="text-xs text-slate-500 block mb-1">开源社区</span>
-                <span class="text-sm text-slate-300 font-medium block">GitHub Profile</span>
-            </a>
-            <a href="https://linkedin.com" target="_blank" class="p-5 bg-slate-800/40 border border-slate-800 hover:border-cyan-500/30 rounded-xl group transition-all duration-300">
-                <i class="fa-brands fa-linkedin text-2xl text-cyan-400 group-hover:scale-110 transition-transform mb-3 block"></i>
-                <span class="text-xs text-slate-500 block mb-1">职场人脉</span>
-                <span class="text-sm text-slate-300 font-medium block">LinkedIn</span>
-            </a>
-        </div>
-
-        <hr class="border-slate-800/80 mb-8">
         
-        <p class="mono-font text-xs text-slate-500">
-            &copy; 2026 [您的名字]. Designed from scratch with Cyber-Minimalism.
-        </p>
+        <div class="experience-item fade-in">
+            <div class="experience-header">
+                <div>
+                    <div class="experience-company">中国电信股份有限公司</div>
+                    <div class="experience-role">研发工程师实习生</div>
+                </div>
+                <div class="experience-date">2024.07 - 2024.09</div>
+            </div>
+            <ul class="experience-details">
+                <li>参与开发Flask工单查询系统，采用分层架构与两步式安全认证，搭建RESTful API接口，日均处理认证请求200+次，保障系统访问安全</li>
+                <li>优化数据库操作，封装PyMySQL实现连接池管理与事务控制，通过参数化查询+输入校验双重防护SQL注入，上线后无注入攻击告警及高危漏洞</li>
+                <li>负责天翼云护网行动安全监控与应急处置模块，依托SOC平台及WAF/IDS设备实时监测服务器状态，日均拦截端口扫描、目录遍历等恶意请求300+次</li>
+                <li>完成200+条安全告警核查与闭环处理</li>
+            </ul>
+        </div>
+
+        <div class="experience-item fade-in">
+            <div class="experience-header">
+                <div>
+                    <div class="experience-company">重明科技有限公司</div>
+                    <div class="experience-role">产品技术实习生</div>
+                </div>
+                <div class="experience-date">2024.01 - 2024.03</div>
+            </div>
+            <ul class="experience-details">
+                <li>编制详细的工程量清单，确保相关监控设备网络硬件产品的采购、安装、调试等各个环节的顺利进行</li>
+                <li>深入剖析业务领域智能识别等核心技术，对摄像机、交换机、监控硬盘等核心设备进行详尽的调研与选型</li>
+                <li>协同硬件与AI算法团队完成方案集成，兼顾交换机网络安全与异常识别AI模型安全，输出符合智能安全监控方案</li>
+            </ul>
+        </div>
     </section>
-    
-    <!-- 引入独立JS脚本 -->
-    <script src="js/main.js"></script>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="section-header fade-in">
+            <div class="section-label">Projects</div>
+            <h2 class="section-title">项目经历</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="project-card-header">
+                    <div class="project-card-title">网约车出行目的预测</div>
+                    <div class="project-card-date">2024.12</div>
+                </div>
+                <div class="project-card-desc">
+                    聚焦网约车出行目的多分类预测，融合Transformer与ANN构建深度学习模型，结合订单、POI及价格数据优化模型。
+                    完成多源数据清洗预处理与特征工程，复现参考论文ANN模型并引入Transformer编码器，模型预测准确率提升8.5%。
+                </div>
+                <div class="project-card-desc" style="color: var(--accent); font-size: 0.85rem;">
+                    安全性考量：针对70万+条敏感用户数据，依《个人信息保护法》实施掩码+字段替换脱敏，通过对抗性训练强化模型鲁棒性。
+                </div>
+                <div class="project-card-tags">
+                    <span class="project-tag">Transformer</span>
+                    <span class="project-tag">ANN</span>
+                    <span class="project-tag">特征工程</span>
+                    <span class="project-tag">数据脱敏</span>
+                    <span class="project-tag">对抗性训练</span>
+                </div>
+                <a href="project-ride.html" class="project-link">查看详情 →</a>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-card-header">
+                    <div class="project-card-title">气候经济耦合研究</div>
+                    <div class="project-card-date">2023.02</div>
+                </div>
+                <div class="project-card-desc">
+                    以GGDP为基础的气候经济耦合研究，获美国大学生数学建模竞赛H奖。整合超过2GB不同来源的气象数据并进行预处理，
+                    使用Matplotlib创建交互式仪表板，对GGDP模型进行敏感度分析，发现GGDP对国家气候变化的关联程度高达85%。
+                </div>
+                <div class="project-card-tags">
+                    <span class="project-tag">数学建模</span>
+                    <span class="project-tag">数据可视化</span>
+                    <span class="project-tag">Matlab</span>
+                    <span class="project-tag">敏感度分析</span>
+                </div>
+                <a href="project-climate.html" class="project-link">查看详情 →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="section">
+        <div class="section-header fade-in">
+            <div class="section-label">Awards</div>
+            <h2 class="section-title">荣誉奖项</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="badges-grid">
+            <div class="badge-item fade-in">
+                <span class="badge-icon">🏆</span>
+                <span>2023暨南大学"互联网+"大学生创业创新大赛校赛银奖</span>
+            </div>
+            <div class="badge-item fade-in">
+                <span class="badge-icon">🏅</span>
+                <span>2022年APMCM亚太地区大学生数学建模竞赛三等奖</span>
+            </div>
+            <div class="badge-item fade-in">
+                <span class="badge-icon">🏅</span>
+                <span>2023美国大学生数学建模竞赛H奖</span>
+            </div>
+            <div class="badge-item fade-in">
+                <span class="badge-icon">🏅</span>
+                <span>2023暨南大学吴渔夫杯三等奖</span>
+            </div>
+            <div class="badge-item fade-in">
+                <span class="badge-icon">🔓</span>
+                <span>暨南大学CTF新生赛三等奖</span>
+            </div>
+            <div class="badge-item fade-in">
+                <span class="badge-icon">🔍</span>
+                <span>"长安杯"电子数据取证竞赛三等奖</span>
+            </div>
+            <div class="badge-item fade-in">
+                <span class="badge-icon">📜</span>
+                <span>深信服SCSA-T安全技术工程师认证</span>
+            </div>
+            <div class="badge-item fade-in">
+                <span class="badge-icon">🎖</span>
+                <span>2025届暨南大学毕业优秀学生骨干奖学金</span>
+            </div>
+            <div class="badge-item fade-in">
+                <span class="badge-icon">🎖</span>
+                <span>2022-2024优秀学生骨干荣誉称号</span>
+            </div>
+            <div class="badge-item fade-in">
+                <span class="badge-icon">🎖</span>
+                <span>2022-2023优秀学生三等奖学金</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>© 2024 吕万朗 · 用代码与安全构建未来</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="mailto:llongsf@163.com">llongsf@163.com</a> · 
+                <a href="https://github.com/Llongsf" target="_blank">GitHub</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
     <script src="js/matrix-rain.js"></script>
-    <script src="js/terminal.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

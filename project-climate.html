@@ -3,28 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>项目详情 | 全球气候经济耦合系统研究</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>气候经济耦合研究 | 吕万朗</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="text-slate-300">
-    <div class="max-w-4xl mx-auto px-6 py-12">
-        <a href="index.html#projects" class="inline-flex items-center text-sm text-slate-400 hover:text-emerald-400 mb-8"><i class="fa-solid fa-arrow-left mr-2"></i> 返回项目列表</a>
-        
-        <article class="space-y-6">
-            <header class="border-b border-slate-800 pb-6">
-                <span class="text-xs mono-font text-emerald-400 bg-emerald-950/40 px-2.5 py-1 rounded border border-emerald-900/50">MCM/ICM 美赛 H奖成果</span>
-                <h1 class="text-3xl md:text-4xl font-extrabold text-white mt-4">全球气候经济耦合系统研究</h1>
-            </header>
+<body>
+    <canvas id="matrix-canvas"></canvas>
 
-            <section class="space-y-4">
-                <h2 class="text-xl font-bold text-slate-100 flex items-center"><span class="w-1.5 h-4 bg-emerald-500 mr-2.5 rounded-sm"></span>1. 大规模数据清洗与沙盘可视化</h2>
-                <p class="text-sm text-slate-400 leading-relaxed">
-                    对超过 2GB 的异构多源全球变迁气象观测数据进行预处理。通过多线程映射机制对缺失值实施插值修复。利用 Matlab 对宏观经济可持续增长模型进行敏感度多重仿真计算。
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">LWL<span>.dev</span></a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="index.html#projects">项目</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Detail -->
+    <div class="project-detail">
+        <div class="project-detail-header">
+            <div class="section-label">Project</div>
+            <h1 class="project-detail-title">以GGDP为基础的气候经济耦合研究</h1>
+            <div class="project-detail-meta">2023.02 · 美国大学生数学建模竞赛H奖</div>
+            <div class="project-card-tags" style="margin-top: 1rem;">
+                <span class="project-tag">数学建模</span>
+                <span class="project-tag">数据可视化</span>
+                <span class="project-tag">Matlab</span>
+                <span class="project-tag">Matplotlib</span>
+                <span class="project-tag">敏感度分析</span>
+            </div>
+        </div>
+
+        <div class="project-detail-body">
+            <h3>项目概述</h3>
+            <p>
+                本项目参加2023年美国大学生数学建模竞赛（MCM/ICM），以GGDP（绿色国内生产总值）为基础，
+                研究气候变化与经济发展之间的耦合关系，最终获得H奖（Honorable Mention）。
+            </p>
+
+            <h3>数据预处理</h3>
+            <p>
+                访问各类气象数据网站，整合超过2GB不同来源的气象数据并进行数据预处理，
+                以确保数据的质量和一致性。对不同格式、不同时间跨度的数据进行了标准化处理，
+                为后续建模提供了可靠的数据基础。
+            </p>
+
+            <h3>数据可视化</h3>
+            <p>
+                使用数据可视化工具（Matplotlib）来创建交互式仪表板，
+                便于团队成员分析和讨论。通过多维度数据展示，
+                直观地呈现了气候指标与经济指标之间的关联趋势。
+            </p>
+
+            <div class="chart-container">
+                <p style="color: var(--text-muted); text-align: center; font-family: var(--font-mono); font-size: 0.85rem;">
+                    数据可视化图表区域
                 </p>
-            </section>
-        </article>
+            </div>
+
+            <h3>敏感度分析</h3>
+            <p>
+                对GGDP和国家气候变化、经济可持续发展模型进行敏感度分析（Matlab），
+                发现GGDP对国家气候变化的关联程度高达85%，经济可持续发展的影响则更为复杂，
+                涉及多个敏感因素。这一发现为绿色经济政策制定提供了定量依据。
+            </p>
+
+            <h3>关键成果</h3>
+            <ul>
+                <li>整合2GB+多源气象数据，完成标准化预处理流程</li>
+                <li>GGDP与气候变化关联度达85%</li>
+                <li>构建气候-经济耦合模型，揭示多因素交互影响</li>
+                <li>获美国大学生数学建模竞赛H奖</li>
+            </ul>
+        </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>© 2024 吕万朗 · <a href="index.html">返回首页</a></p>
+        </div>
+    </footer>
+
+    <script src="js/matrix-rain.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
